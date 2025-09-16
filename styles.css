@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.clock-container {
+    background-color: #000;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 120px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 8px;
+}
+
+.digit {
+    position: relative;
+    width: 80px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.segment {
+    position: absolute;
+    background-color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.segment.active {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Horizontal segments */
+.segment.horizontal {
+    width: 60px;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.segment.top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.segment.middle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.segment.bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Vertical segments */
+.segment.vertical {
+    width: 8px;
+    height: 60px;
+    border-radius: 4px;
+}
+
+.segment.top-left {
+    top: 8px;
+    left: 0;
+}
+
+.segment.top-right {
+    top: 8px;
+    right: 0;
+}
+
+.segment.bottom-left {
+    bottom: 8px;
+    left: 0;
+}
+
+.segment.bottom-right {
+    bottom: 8px;
+    right: 0;
+}
+
+.colon {
+    font-size: 120px;
+    color: #fff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.time-period {
+    font-size: 36px;
+    color: #fff;
+    margin-left: 20px;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.schedule-category {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.work-time {
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+}
+
+.sleep-time {
+    color: #4ecdc4;
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+}
+
+.study-time {
+    color: #45b7d1;
+    text-shadow: 0 0 10px rgba(69, 183, 209, 0.3);
+}
+
+@media (max-width: 768px) {
+    .clock {
+        font-size: 80px;
+        gap: 10px;
+        letter-spacing: 4px;
+    }
+
+    .digit {
+        width: 50px;
+        height: 90px;
+    }
+
+    .segment.horizontal {
+        width: 40px;
+        height: 6px;
+    }
+
+    .segment.vertical {
+        width: 6px;
+        height: 36px;
+    }
+
+    .schedule-category {
+        font-size: 18px;
+        margin-top: 20px;
+        letter-spacing: 1px;
+    }
+}
